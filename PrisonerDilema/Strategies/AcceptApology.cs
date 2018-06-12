@@ -7,24 +7,54 @@ using static PrisonerDilema.Action;
 
 namespace PrisonerDilema.Strategies
 {
-    class AcceptApology : CumulativeStrategy
+    class AcceptApology : IStrategy
     {
-        public override bool TakeAction()
+        protected readonly Stack<bool> EnemyMoves = new Stack<bool>(3);
+        protected readonly Stack<bool> MyMoves = new Stack<bool>(3);
+        protected bool LastMove = COOPERATION;
+        public bool TakeAction()
         {
-            /*if (EnemyMoves.Count < 4)
+            if (EnemyMoves.Count < 4)
             {
+                MyMoves.Push(LastMove);
                 return LastMove;
             }
 
-            List<bool> last2Moves = new List<bool>(4);
+            bool ourMove;
+            if (true)
+            {
+                int movesToProcess = 2;
+                List<bool> lastOponentMoves = new List<bool>(movesToProcess);
+                List<bool> lastMyMoves = new List<bool>(movesToProcess);
 
-            for (int i = 0; i < 3; i++)
-                last3Moves.Add(EnemyMoves.Pop());
+                for (int i = 0; i < movesToProcess; i++)
+                {
+                    lastOponentMoves.Add(EnemyMoves.Pop());
+                    lastMyMoves.Add(MyMoves.Pop());
+                }
 
-            if(last3Moves[0] == BETRAYAL && last3Moves[1] == COOPERATION
+                //our move
+                if (lastMyMoves[0] == COOPERATION && lastOponentMoves[0] == BETRAYAL &&
+                    lastMyMoves[1] == BETRAYAL && lastOponentMoves[1] == COOPERATION)
+                    ourMove = COOPERATION;
+                else
+                    ourMove = BETRAYAL;
 
-            MyMoves.Push();*/
-            return false;
+                for (int i = movesToProcess-1; i >= 0 ; i--)
+                {
+                    EnemyMoves.Push(lastOponentMoves[i]);
+                    MyMoves.Push(lastMyMoves[i]);
+                }
+            }
+
+            MyMoves.Push(ourMove);
+            return ourMove;
+        }
+
+        public void ProcessOpponentAction(bool opponentAction)
+        {
+            LastMove = opponentAction;
+            EnemyMoves.Push(opponentAction);
         }
     }
 }

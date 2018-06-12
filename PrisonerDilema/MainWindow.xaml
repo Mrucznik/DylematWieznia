@@ -13,10 +13,12 @@
             <ComboBoxItem Content="Wet za wet"/>
             <ComboBoxItem Content="Wet za dwa wety"/>
             <ComboBoxItem Content="Nie zatapiaj łodzi"/>
-            <ComboBoxItem Content="Bądź podatny na prowokację"/>
             <ComboBoxItem Content="Akceptuj przeprosiny"/>
             <ComboBoxItem Content="Zapominaj"/>
             <ComboBoxItem Content="Trzymaj się rozwiązania rutynowego"/>
+            <ComboBoxItem Content="Zawsze zdradzaj"/>
+            <ComboBoxItem Content="Zawsze współpracuj"/>
+            <ComboBoxItem Content="Losowo"/>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="188,79,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="Lata odsiadki" VerticalAlignment="Top" Width="120"/>
         <TextBlock Name="Prisoner1SumOfYears" HorizontalAlignment="Left" Margin="188,100,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="0"  VerticalAlignment="Top" Width="120"/>
@@ -26,10 +28,12 @@
             <ComboBoxItem Content="Wet za wet"/>
             <ComboBoxItem Content="Wet za dwa wety"/>
             <ComboBoxItem Content="Nie zatapiaj łodzi"/>
-            <ComboBoxItem Content="Bądź podatny na prowokację"/>
             <ComboBoxItem Content="Akceptuj przeprosiny"/>
             <ComboBoxItem Content="Zapominaj"/>
             <ComboBoxItem Content="Trzymaj się rozwiązania rutynowego"/>
+            <ComboBoxItem Content="Zawsze zdradzaj"/>
+            <ComboBoxItem Content="Zawsze współpracuj"/>
+            <ComboBoxItem Content="Losowo"/>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="313,79,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="Lata odsiadki" VerticalAlignment="Top" Width="120"/>
         <TextBlock Name="Prisoner2SumOfYears" HorizontalAlignment="Left" Margin="313,100,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="0"  VerticalAlignment="Top" Width="120"/>
@@ -39,8 +43,8 @@
 
 
 
-        <Button Content="Zakończ symulacje" HorizontalAlignment="Left" Margin="251,439,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click" IsEnabled="False"/>
-        <Button Content="Rozpocznij symulacje" HorizontalAlignment="Left" Margin="251,414,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click"/>
+        <Button Name="StopSim" Content="Zakończ symulacje" HorizontalAlignment="Left" Margin="251,439,0,0" VerticalAlignment="Top" Width="120" Click="Stop_Click"/>
+        <Button Name="StartSim" Content="Rozpocznij symulacje" HorizontalAlignment="Left" Margin="251,414,0,0" VerticalAlignment="Top" Width="120" Click="Start_Click"/>
         <Label Content="Ilość iteracji: " HorizontalAlignment="Left" Margin="188,367,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="NumberOfIterations" Text="100" HorizontalAlignment="Left" Height="23" Margin="313,371,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117"/>
     </Grid>

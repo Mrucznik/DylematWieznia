@@ -68,7 +68,7 @@ namespace PrisonerDilema
                 }
                 case "Akceptuj przeprosiny":
                 {
-                    prisoner.SetStrategy(new TitForTat());
+                    prisoner.SetStrategy(new AcceptApology());
                     break;
                 }
                 case "Zapominaj":
@@ -105,6 +105,7 @@ namespace PrisonerDilema
             Display.Items.Add(roundText);
             Display.SelectedIndex = Display.Items.Count - 1;
             Display.ScrollIntoView(Display.SelectedItem);
+
             Prisoner1SumOfYears.Text = _prisoner1.Score.ToString();
             Prisoner2SumOfYears.Text = _prisoner2.Score.ToString();
             PrisonersSumOfYears.Text = (_prisoner1.Score + _prisoner2.Score).ToString();
@@ -130,6 +131,34 @@ namespace PrisonerDilema
                 _prisoner1.Score += 5f;
                 _prisoner2.Score += 5f;
             }
+        }
+
+        private void Betray(object sender, RoutedEventArgs e)
+        {
+            var prisoner1Choice = _prisoner1.TakeAction();
+            _prisoner1.ProcessOpponentAction(BETRAYAL);
+            CalculateScore(prisoner1Choice, BETRAYAL);
+            UpdateGUI($"W1: {prisoner1Choice}, W2: {BETRAYAL}");
+
+        }
+
+        private void Cooperate(object sender, RoutedEventArgs e)
+        {
+            var prisoner1Choice = _prisoner1.TakeAction();
+            _prisoner1.ProcessOpponentAction(COOPERATION);
+            CalculateScore(prisoner1Choice, COOPERATION);
+            UpdateGUI($"W1: {prisoner1Choice}, W2: {COOPERATION}");
+        }
+
+        private void EraseData(object sender, RoutedEventArgs e)
+        {
+            Display.Items.Clear();
+            _prisoner1.Score = 0;
+            _prisoner2.Score = 0;
+
+            Prisoner1SumOfYears.Text = _prisoner1.Score.ToString();
+            Prisoner2SumOfYears.Text = _prisoner2.Score.ToString();
+            PrisonersSumOfYears.Text = (_prisoner1.Score + _prisoner2.Score).ToString();
         }
 
         private async void Simulate(Prisoner prisoner1, Prisoner prisoner2, int iterations)

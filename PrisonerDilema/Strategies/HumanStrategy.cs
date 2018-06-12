@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PrisonerDilema.Strategies
 {
+    /// <summary>
+    /// Gracz wybiera.
+    /// </summary>
     class HumanStrategy : IStrategy
     {
         public bool TakeAction()

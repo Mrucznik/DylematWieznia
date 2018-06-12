@@ -63,6 +63,7 @@
     <Compile Include="Strategies\DontSkinTheBoat.cs" />
     <Compile Include="Strategies\RandomStrategy.cs" />
     <Compile Include="Strategies\HumanStrategy.cs" />
+    <Compile Include="Strategies\RutineStrategy.cs" />
     <Compile Include="Strategies\TitForTat.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

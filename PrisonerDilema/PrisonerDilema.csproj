@@ -64,6 +64,7 @@
     <Compile Include="Strategies\RandomStrategy.cs" />
     <Compile Include="Strategies\HumanStrategy.cs" />
     <Compile Include="Strategies\RutineStrategy.cs" />
+    <Compile Include="Strategies\TitFor2Tat.cs" />
     <Compile Include="Strategies\TitForTat.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -45,10 +45,11 @@
 
         <Button Name="StopSim" Content="Zakończ symulacje" HorizontalAlignment="Left" Margin="251,439,0,0" VerticalAlignment="Top" Width="120" Click="Stop_Click"/>
         <Button Name="StartSim" Content="Rozpocznij symulacje" HorizontalAlignment="Left" Margin="251,414,0,0" VerticalAlignment="Top" Width="120" Click="Start_Click"/>
-        <Label Content="Ilość iteracji: " HorizontalAlignment="Left" Margin="188,367,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="NumberOfIterations" Text="100" HorizontalAlignment="Left" Height="23" Margin="313,371,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117"/>
+        <Label Content="Ilość iteracji: " HorizontalAlignment="Left" Margin="188,361,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="NumberOfIterations" Text="100" HorizontalAlignment="Left" Height="23" Margin="313,365,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117"/>
         <Button Content="Zdradź" HorizontalAlignment="Left" Margin="313,212,0,0" VerticalAlignment="Top" Width="117" Click="Betray"/>
         <Button Content="Współpracuj" HorizontalAlignment="Left" Margin="313,237,0,0" VerticalAlignment="Top" Width="117" Click="Cooperate"/>
         <Button Content="Wyczyść" HorizontalAlignment="Left" Margin="376,414,0,0" Width="54" Click="EraseData" Height="47" VerticalAlignment="Top"/>
+        <CheckBox Name="SlowMode" Content="Zwolnij iteracje" HorizontalAlignment="Left" Margin="313,394,0,0" VerticalAlignment="Top" Height="15" Width="117"/>
     </Grid>
 </Window>

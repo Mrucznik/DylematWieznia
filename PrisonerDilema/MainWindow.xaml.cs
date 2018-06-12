@@ -39,7 +39,7 @@ namespace PrisonerDilema
             int iterations = Int32.Parse(NumberOfIterations.Text);
             SelectStrategy(Prisoner1Strategy, _prisoner1);
             SelectStrategy(Prisoner2Strategy, _prisoner2);
-            Simulate(_prisoner1, _prisoner2, iterations);
+            Simulate(_prisoner1, _prisoner2, iterations, SlowMode.IsChecked ?? false);
             _shouldEnd = false;
         }
         private void Stop_Click(object sender, RoutedEventArgs e)
@@ -161,7 +161,8 @@ namespace PrisonerDilema
             PrisonersSumOfYears.Text = (_prisoner1.Score + _prisoner2.Score).ToString();
         }
 
-        private async void Simulate(Prisoner prisoner1, Prisoner prisoner2, int iterations)
+
+        private async void Simulate(Prisoner prisoner1, Prisoner prisoner2, int iterations, bool slowMode)
         {
             await Task.Run(() =>
             {
@@ -178,7 +179,9 @@ namespace PrisonerDilema
 
                     Dispatcher.BeginInvoke(DispatcherPriority.Normal,
                         (ThreadStart) delegate() { UpdateGUI($"W1: {prisoner1Choice}, W2: {prisoner2Choice}"); });
-                    Thread.Sleep(100);
+                    if(slowMode) {
+                        Thread.Sleep(100);
+                    }
                 }
             });
 

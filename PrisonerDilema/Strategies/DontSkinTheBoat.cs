@@ -10,31 +10,27 @@ namespace PrisonerDilema.Strategies
     /// <summary>
     /// Wet za wet, ale przedłużaj współpracę po trzech kolejnych współpracach.
     /// </summary>
-    class DontSkinTheBoat : IStrategy
+    class DontSkinTheBoat : CumulativeStrategy
     {
-        private readonly Stack<bool> _enemyMoves = new Stack<bool>(3);
-        private bool _lastMove = COOPERATION;
-
-
-        public bool TakeAction()
+        public override bool TakeAction()
         {
-            if (_enemyMoves.Count < 4)
+            if (EnemyMoves.Count < 4)
             {
-                return _lastMove;
+                return LastMove;
             }
 
             bool ourMove;
-            if (_lastMove == BETRAYAL)
+            if (LastMove == BETRAYAL)
             {
                 Stack<bool> last4Moves = new Stack<bool>(4);
 
                 for (int i = 0; i < 4; i++)
-                    last4Moves.Push(_enemyMoves.Pop());
+                    last4Moves.Push(EnemyMoves.Pop());
 
                 ourMove = last4Moves.Count(move => move == COOPERATION) > 3 ? COOPERATION : BETRAYAL;
 
                 for (int i = 0; i < 4; i++)
-                    _enemyMoves.Push(last4Moves.Pop());
+                    EnemyMoves.Push(last4Moves.Pop());
                     
             }
             else
@@ -43,12 +39,6 @@ namespace PrisonerDilema.Strategies
             }
 
             return ourMove;
-        }
-
-        public void ProcessOpponentAction(bool opponentAction)
-        {
-            _lastMove = opponentAction;
-            _enemyMoves.Push(opponentAction);
         }
     }
 }

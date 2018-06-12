@@ -11,10 +11,10 @@ namespace PrisonerDilema.Strategies
     /// </summary>
     class RandomStrategy : IStrategy
     {
+        private readonly Random _random = new Random();
         public bool TakeAction()
         {
-            Random random = new Random();
-            return random.Next(0, 1) == 0;
+            return _random.Next(0, 1) == 0;
         }
 
         public void ProcessOpponentAction(bool opponentAction)

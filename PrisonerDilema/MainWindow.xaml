@@ -4,12 +4,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Dylemat więźnia" Height="500" Width="448.415">
+        Title="Dylemat więźnia" Height="500" Width="611.165">
     <Grid>
-        <ListBox Name="Display" HorizontalAlignment="Left" Margin="10,10,0,10" Width="173"/>
+        <ListBox Name="Display" HorizontalAlignment="Left" Margin="10,10,0,10" Width="336"/>
 
-        <Label Content="Więzień 1" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="188,10,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox Name="Prisoner1Strategy" Margin="188,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">
+        <Label Content="Więzień 1" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="351,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name="Prisoner1Strategy" Margin="351,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">
             <ComboBoxItem Content="Wet za wet"/>
             <ComboBoxItem Content="Wet za dwa wety"/>
             <ComboBoxItem Content="Nie zatapiaj łodzi"/>
@@ -20,11 +20,11 @@
             <ComboBoxItem Content="Zawsze współpracuj"/>
             <ComboBoxItem Content="Losowo"/>
         </ComboBox>
-        <TextBlock HorizontalAlignment="Left" Margin="188,79,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="Lata odsiadki" VerticalAlignment="Top" Width="120"/>
-        <TextBlock Name="Prisoner1SumOfYears" HorizontalAlignment="Left" Margin="188,100,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="0"  VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="351,79,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="Lata odsiadki" VerticalAlignment="Top" Width="120"/>
+        <TextBlock Name="Prisoner1SumOfYears" HorizontalAlignment="Left" Margin="351,100,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="0"  VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="Więzień 2" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="313,9,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox Name="Prisoner2Strategy" Margin="313,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">
+        <Label Content="Więzień 2" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="476,9,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name="Prisoner2Strategy" Margin="476,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">
             <ComboBoxItem Content="Wet za wet"/>
             <ComboBoxItem Content="Wet za dwa wety"/>
             <ComboBoxItem Content="Nie zatapiaj łodzi"/>
@@ -35,21 +35,21 @@
             <ComboBoxItem Content="Zawsze współpracuj"/>
             <ComboBoxItem Content="Losowo"/>
         </ComboBox>
-        <TextBlock HorizontalAlignment="Left" Margin="313,79,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="Lata odsiadki" VerticalAlignment="Top" Width="120"/>
-        <TextBlock Name="Prisoner2SumOfYears" HorizontalAlignment="Left" Margin="313,100,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="0"  VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="476,79,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="Lata odsiadki" VerticalAlignment="Top" Width="120"/>
+        <TextBlock Name="Prisoner2SumOfYears" HorizontalAlignment="Left" Margin="476,100,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="0"  VerticalAlignment="Top" Width="120"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="251,135,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="Łączne lata odsiadki" VerticalAlignment="Top" Width="120"/>
-        <TextBlock Name="PrisonersSumOfYears" HorizontalAlignment="Left" Margin="251,156,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="0"  VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="414,135,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="Łączne lata odsiadki" VerticalAlignment="Top" Width="120"/>
+        <TextBlock Name="PrisonersSumOfYears" HorizontalAlignment="Left" Margin="414,156,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="0"  VerticalAlignment="Top" Width="120"/>
 
 
 
-        <Button Name="StopSim" Content="Zakończ symulacje" HorizontalAlignment="Left" Margin="251,439,0,0" VerticalAlignment="Top" Width="120" Click="Stop_Click"/>
-        <Button Name="StartSim" Content="Rozpocznij symulacje" HorizontalAlignment="Left" Margin="251,414,0,0" VerticalAlignment="Top" Width="120" Click="Start_Click"/>
-        <Label Content="Ilość iteracji: " HorizontalAlignment="Left" Margin="188,361,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="NumberOfIterations" Text="100" HorizontalAlignment="Left" Height="23" Margin="313,365,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117"/>
-        <Button Content="Zdradź" HorizontalAlignment="Left" Margin="313,212,0,0" VerticalAlignment="Top" Width="117" Click="Betray"/>
-        <Button Content="Współpracuj" HorizontalAlignment="Left" Margin="313,237,0,0" VerticalAlignment="Top" Width="117" Click="Cooperate"/>
-        <Button Content="Wyczyść" HorizontalAlignment="Left" Margin="376,414,0,0" Width="54" Click="EraseData" Height="47" VerticalAlignment="Top"/>
-        <CheckBox Name="SlowMode" Content="Zwolnij iteracje" HorizontalAlignment="Left" Margin="313,394,0,0" VerticalAlignment="Top" Height="15" Width="117"/>
+        <Button Name="StopSim" Content="Zakończ symulacje" HorizontalAlignment="Left" Margin="414,439,0,0" VerticalAlignment="Top" Width="120" Click="Stop_Click"/>
+        <Button Name="StartSim" Content="Rozpocznij symulacje" HorizontalAlignment="Left" Margin="414,414,0,0" VerticalAlignment="Top" Width="120" Click="Start_Click"/>
+        <Label Content="Ilość iteracji: " HorizontalAlignment="Left" Margin="351,361,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="NumberOfIterations" Text="100" HorizontalAlignment="Left" Height="23" Margin="476,365,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117"/>
+        <Button Content="Zdradź" HorizontalAlignment="Left" Margin="476,212,0,0" VerticalAlignment="Top" Width="117" Click="Betray"/>
+        <Button Content="Współpracuj" HorizontalAlignment="Left" Margin="476,237,0,0" VerticalAlignment="Top" Width="117" Click="Cooperate"/>
+        <Button Content="Wyczyść" HorizontalAlignment="Left" Margin="539,414,0,0" Width="54" Click="EraseData" Height="47" VerticalAlignment="Top"/>
+        <CheckBox Name="SlowMode" Content="Zwolnij iteracje" HorizontalAlignment="Left" Margin="476,394,0,0" VerticalAlignment="Top" Height="15" Width="117"/>
     </Grid>
 </Window>

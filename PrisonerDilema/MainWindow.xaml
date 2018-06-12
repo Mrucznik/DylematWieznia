@@ -9,7 +9,7 @@
         <ListBox Name="Display" HorizontalAlignment="Left" Margin="10,10,0,10" Width="173"/>
 
         <Label Content="Więzień 1" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="188,10,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox Name="W1Strategy" Margin="188,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">
+        <ComboBox Name="Prisoner1Strategy" Margin="188,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">
             <ComboBoxItem Content="Wet za wet"/>
             <ComboBoxItem Content="Wet za dwa wety"/>
             <ComboBoxItem Content="Nie zatapiaj łodzi"/>
@@ -19,10 +19,10 @@
             <ComboBoxItem Content="Trzymaj się rozwiązania rutynowego"/>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="188,79,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="Lata odsiadki" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="188,100,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="0"  VerticalAlignment="Top" Width="120"/>
+        <TextBlock Name="Prisoner1SumOfYears" HorizontalAlignment="Left" Margin="188,100,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="0"  VerticalAlignment="Top" Width="120"/>
 
         <Label Content="Więzień 2" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="313,9,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox Name="W2Strategy" Margin="313,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">
+        <ComboBox Name="Prisoner2Strategy" Margin="313,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">
             <ComboBoxItem Content="Wet za wet"/>
             <ComboBoxItem Content="Wet za dwa wety"/>
             <ComboBoxItem Content="Nie zatapiaj łodzi"/>
@@ -32,10 +32,10 @@
             <ComboBoxItem Content="Trzymaj się rozwiązania rutynowego"/>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="313,79,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="Lata odsiadki" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="313,100,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="0"  VerticalAlignment="Top" Width="120"/>
+        <TextBlock Name="Prisoner2SumOfYears" HorizontalAlignment="Left" Margin="313,100,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="0"  VerticalAlignment="Top" Width="120"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="251,135,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="Łączne lata odsiadki" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="251,156,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="0"  VerticalAlignment="Top" Width="120"/>
+        <TextBlock Name="PrisonersSumOfYears" HorizontalAlignment="Left" Margin="251,156,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="0"  VerticalAlignment="Top" Width="120"/>
 
         <Button Content="Rozpocznij symulacje" HorizontalAlignment="Left" Margin="251,439,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click"/>
     </Grid>

@@ -27,8 +27,9 @@ namespace PrisonerDilema
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var a = new ListBoxItem().Content = W1Strategy.Text;
+            var a = new ListBoxItem().Content = Prisoner1Strategy.Text;
             Display.Items.Add(a);
+            Prisoner1SumOfYears.Text = (Int32.Parse(Prisoner1SumOfYears.Text) + 1).ToString();
         }
     }
 }

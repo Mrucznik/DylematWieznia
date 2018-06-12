@@ -58,6 +58,8 @@
     <Compile Include="IStrategy.cs" />
     <Compile Include="Strategies\AlwaysBetrayStrategy.cs" />
     <Compile Include="Strategies\AlwaysCooperateStrategy.cs" />
+    <Compile Include="Strategies\CumulativeStrategy.cs" />
+    <Compile Include="Strategies\AcceptApology.cs" />
     <Compile Include="Strategies\DontSkinTheBoat.cs" />
     <Compile Include="Strategies\RandomStrategy.cs" />
     <Compile Include="Strategies\HumanStrategy.cs" />

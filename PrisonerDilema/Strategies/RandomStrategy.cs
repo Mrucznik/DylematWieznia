@@ -3,25 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static PrisonerDilema.Action;
 
 namespace PrisonerDilema.Strategies
 {
     /// <summary>
-    /// Wet za wet.
+    /// Losowo zdradzaj i współpracuj.
     /// </summary>
-    class TitForTat : IStrategy
+    class RandomStrategy : IStrategy
     {
-        private bool _previousAction = COOPERATION;
-
         public bool TakeAction()
         {
-            return _previousAction;
+            Random random = new Random();
+            return random.Next(0, 1) == 0;
         }
 
         public void ProcessOpponentAction(bool opponentAction)
         {
-            _previousAction = opponentAction;
+            //do nothing
         }
     }
 }

@@ -9,6 +9,7 @@ namespace PrisonerDilema
     class Prisoner : IStrategy
     {
         private IStrategy _strategy;
+        public float Score { get; set; }
 
         public Prisoner(IStrategy strategy)
         {

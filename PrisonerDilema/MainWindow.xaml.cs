@@ -136,18 +136,24 @@ namespace PrisonerDilema
         private void Betray(object sender, RoutedEventArgs e)
         {
             var prisoner1Choice = _prisoner1.TakeAction();
-            _prisoner1.ProcessOpponentAction(BETRAYAL);
-            CalculateScore(prisoner1Choice, BETRAYAL);
-            UpdateGUI($"W1: {prisoner1Choice}, W2: {BETRAYAL}");
+            var prisoner2Choice = BETRAYAL;
+            _prisoner1.ProcessOpponentAction(prisoner2Choice);
+            CalculateScore(prisoner1Choice, prisoner2Choice);
+            string p1 = prisoner1Choice ? "Współpracuje" : "Zdradził";
+            string p2 = prisoner2Choice ? "Współpracuje" : "Zdradził";
+            UpdateGUI($"W1: {p1}, W2: {p2}");
 
         }
 
         private void Cooperate(object sender, RoutedEventArgs e)
         {
             var prisoner1Choice = _prisoner1.TakeAction();
-            _prisoner1.ProcessOpponentAction(COOPERATION);
-            CalculateScore(prisoner1Choice, COOPERATION);
-            UpdateGUI($"W1: {prisoner1Choice}, W2: {COOPERATION}");
+            var prisoner2Choice = COOPERATION;
+            _prisoner1.ProcessOpponentAction(prisoner2Choice);
+            CalculateScore(prisoner1Choice, prisoner2Choice);
+            string p1 = prisoner1Choice ? "Współpracuje" : "Zdradził";
+            string p2 = prisoner2Choice ? "Współpracuje" : "Zdradził";
+            UpdateGUI($"W1: {p1}, W2: {p2}");
         }
 
         private void EraseData(object sender, RoutedEventArgs e)
@@ -178,7 +184,12 @@ namespace PrisonerDilema
                     CalculateScore(prisoner1Choice, prisoner2Choice);
 
                     Dispatcher.BeginInvoke(DispatcherPriority.Normal,
-                        (ThreadStart) delegate() { UpdateGUI($"W1: {prisoner1Choice}, W2: {prisoner2Choice}"); });
+                        (ThreadStart) delegate()
+                        {
+                            string p1 = prisoner1Choice ? "Współpracuje" : "Zdradził";
+                            string p2 = prisoner2Choice ? "Współpracuje" : "Zdradził";
+                            UpdateGUI($"W1: {p1}, W2: {p2}");
+                        });
                     if(slowMode) {
                         Thread.Sleep(100);
                     }

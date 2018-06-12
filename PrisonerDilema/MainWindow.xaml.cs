@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -25,6 +26,7 @@ namespace PrisonerDilema
     public partial class MainWindow : Window
     {
         private Prisoner _prisoner1, _prisoner2;
+        private bool _shouldEnd;
         public MainWindow()
         {
             InitializeComponent();
@@ -32,15 +34,22 @@ namespace PrisonerDilema
             _prisoner2 = new Prisoner(new TitForTat());
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Start_Click(object sender, RoutedEventArgs e)
         {
             int iterations = Int32.Parse(NumberOfIterations.Text);
+            SelectStrategy(Prisoner1Strategy, _prisoner1);
+            SelectStrategy(Prisoner2Strategy, _prisoner2);
             Simulate(_prisoner1, _prisoner2, iterations);
+            _shouldEnd = false;
+        }
+        private void Stop_Click(object sender, RoutedEventArgs e)
+        {
+            _shouldEnd = true;
         }
 
         private void SelectStrategy(ComboBox comboBox, Prisoner prisoner)
         {
-            switch (comboBox.SelectedValue)
+            switch (comboBox.Text)
             {
                 case "Wet za wet":
                 {
@@ -54,12 +63,7 @@ namespace PrisonerDilema
                 }
                 case "Nie zatapiaj łodzi":
                 {
-                    prisoner.SetStrategy(new TitForTat());
-                    break;
-                }
-                case "Bądź podatny na prowokację":
-                {
-                    prisoner.SetStrategy(new TitForTat());
+                    prisoner.SetStrategy(new DontSkinTheBoat());
                     break;
                 }
                 case "Akceptuj przeprosiny":
@@ -79,12 +83,12 @@ namespace PrisonerDilema
                 }
                 case "Zawsze zdradzaj":
                 {
-                    prisoner.SetStrategy(new TitForTat());
+                    prisoner.SetStrategy(new AlwaysBetrayStrategy());
                     break;
                 }
                 case "Zawsze współpracuj":
                 {
-                    prisoner.SetStrategy(new TitForTat());
+                    prisoner.SetStrategy(new AlwaysCooperateStrategy());
                     break;
                 }
                 case "Losowo":
@@ -130,9 +134,12 @@ namespace PrisonerDilema
 
         private async void Simulate(Prisoner prisoner1, Prisoner prisoner2, int iterations)
         {
-            await Task.Run(() => {
+            await Task.Run(() =>
+            {
                 for (int i = 0; i < iterations; i++)
                 {
+                    if (_shouldEnd) break;
+                    
                     var prisoner1Choice = _prisoner1.TakeAction();
                     var prisoner2Choice = _prisoner2.TakeAction();
                     _prisoner1.ProcessOpponentAction(prisoner2Choice);
@@ -140,7 +147,7 @@ namespace PrisonerDilema
 
                     CalculateScore(prisoner1Choice, prisoner2Choice);
 
-                    this.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                    Dispatcher.BeginInvoke(DispatcherPriority.Normal,
                         (ThreadStart) delegate() { UpdateGUI($"W1: {prisoner1Choice}, W2: {prisoner2Choice}"); });
                     Thread.Sleep(100);
                 }

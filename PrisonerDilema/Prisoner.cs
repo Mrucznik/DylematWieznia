@@ -15,6 +15,7 @@ namespace PrisonerDilema
             SetStrategy(strategy);
         }
 
+
         public void SetStrategy(IStrategy strategy)
         {
             _strategy = strategy;

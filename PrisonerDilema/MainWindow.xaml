@@ -37,6 +37,11 @@
         <TextBlock HorizontalAlignment="Left" Margin="251,135,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="Łączne lata odsiadki" VerticalAlignment="Top" Width="120"/>
         <TextBlock Name="PrisonersSumOfYears" HorizontalAlignment="Left" Margin="251,156,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="0"  VerticalAlignment="Top" Width="120"/>
 
-        <Button Content="Rozpocznij symulacje" HorizontalAlignment="Left" Margin="251,439,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click"/>
+
+
+        <Button Content="Zakończ symulacje" HorizontalAlignment="Left" Margin="251,439,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click" IsEnabled="False"/>
+        <Button Content="Rozpocznij symulacje" HorizontalAlignment="Left" Margin="251,414,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click"/>
+        <Label Content="Ilość iteracji: " HorizontalAlignment="Left" Margin="188,367,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="100" HorizontalAlignment="Left" Height="23" Margin="313,371,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117"/>
     </Grid>
 </Window>

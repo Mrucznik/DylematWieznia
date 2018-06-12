@@ -8,9 +8,14 @@ namespace PrisonerDilema
 {
     class Prisoner : IStrategy
     {
-        private readonly IStrategy _strategy;
+        private IStrategy _strategy;
 
         public Prisoner(IStrategy strategy)
+        {
+            SetStrategy(strategy);
+        }
+
+        public void SetStrategy(IStrategy strategy)
         {
             _strategy = strategy;
         }

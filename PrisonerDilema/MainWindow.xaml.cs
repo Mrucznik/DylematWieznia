@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using PrisonerDilema.Strategies;
 using static PrisonerDilema.Action;
 
@@ -32,23 +34,118 @@ namespace PrisonerDilema
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            int iterations = Int32.Parse(NumberOfIterations.Text);
+            Simulate(_prisoner1, _prisoner2, iterations);
+        }
 
-            var prisoner1Choice = _prisoner1.TakeAction();
-            var prisoner2Choice = _prisoner2.TakeAction();
+        private void SelectStrategy(ComboBox comboBox, Prisoner prisoner)
+        {
+            switch (comboBox.SelectedValue)
+            {
+                case "Wet za wet":
+                {
+                    prisoner.SetStrategy(new TitForTat());
+                    break;
+                }
+                case "Wet za dwa wet":
+                {
+                    prisoner.SetStrategy(new TitForTat());
+                    break;
+                }
+                case "Nie zatapiaj łodzi":
+                {
+                    prisoner.SetStrategy(new TitForTat());
+                    break;
+                }
+                case "Bądź podatny na prowokację":
+                {
+                    prisoner.SetStrategy(new TitForTat());
+                    break;
+                }
+                case "Akceptuj przeprosiny":
+                {
+                    prisoner.SetStrategy(new TitForTat());
+                    break;
+                }
+                case "Zapominaj":
+                {
+                    prisoner.SetStrategy(new TitForTat());
+                    break;
+                }
+                case "Trzymaj się rozwiązania rutynowego":
+                {
+                    prisoner.SetStrategy(new TitForTat());
+                    break;
+                }
+                case "Zawsze zdradzaj":
+                {
+                    prisoner.SetStrategy(new TitForTat());
+                    break;
+                }
+                case "Zawsze współpracuj":
+                {
+                    prisoner.SetStrategy(new TitForTat());
+                    break;
+                }
+                case "Losowo":
+                {
+                    prisoner.SetStrategy(new RandomStrategy());
+                    break;
+                }
+            }
+        }
 
-            ListBoxItem roundText = new ListBoxItem {Content = $"W1: {prisoner1Choice}, W2: {prisoner2Choice}"};
+        private void UpdateGUI(string text)
+        {
+            ListBoxItem roundText = new ListBoxItem { Content = text };
             Display.Items.Add(roundText);
+            Display.SelectedIndex = Display.Items.Count - 1;
+            Display.ScrollIntoView(Display.SelectedItem);
+            Prisoner1SumOfYears.Text = _prisoner1.Score.ToString();
+            Prisoner2SumOfYears.Text = _prisoner2.Score.ToString();
+            PrisonersSumOfYears.Text = (_prisoner1.Score + _prisoner2.Score).ToString();
+        }
 
-            _prisoner1.ProcessOpponentAction(prisoner2Choice);
-            _prisoner2.ProcessOpponentAction(prisoner1Choice);
-
+        private void CalculateScore(bool prisoner1Choice, bool prisoner2Choice)
+        {
             if (prisoner1Choice == COOPERATION && prisoner2Choice == COOPERATION)
             {
-                
+                _prisoner1.Score += .5f;
+                _prisoner2.Score += .5f;
             }
+            else if (prisoner1Choice == COOPERATION && prisoner2Choice == BETRAYAL)
+            {
+                _prisoner1.Score += 10f;
+            }
+            else if (prisoner1Choice == BETRAYAL && prisoner2Choice == COOPERATION)
+            {
+                _prisoner2.Score += 10f;
+            }
+            else if (prisoner1Choice == BETRAYAL && prisoner2Choice == BETRAYAL)
+            {
+                _prisoner1.Score += 5f;
+                _prisoner2.Score += 5f;
+            }
+        }
 
+        private async void Simulate(Prisoner prisoner1, Prisoner prisoner2, int iterations)
+        {
+            await Task.Run(() => {
+                for (int i = 0; i < iterations; i++)
+                {
+                    var prisoner1Choice = _prisoner1.TakeAction();
+                    var prisoner2Choice = _prisoner2.TakeAction();
+                    _prisoner1.ProcessOpponentAction(prisoner2Choice);
+                    _prisoner2.ProcessOpponentAction(prisoner1Choice);
 
-            Prisoner1SumOfYears.Text = (Int32.Parse(Prisoner1SumOfYears.Text) + 1).ToString();
+                    CalculateScore(prisoner1Choice, prisoner2Choice);
+
+                    this.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                        (ThreadStart) delegate() { UpdateGUI($"W1: {prisoner1Choice}, W2: {prisoner2Choice}"); });
+                    Thread.Sleep(100);
+                }
+            });
+
         }
     }
 }

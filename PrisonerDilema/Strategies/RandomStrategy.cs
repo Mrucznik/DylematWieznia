@@ -14,7 +14,7 @@ namespace PrisonerDilema.Strategies
         private readonly Random _random = new Random();
         public bool TakeAction()
         {
-            return _random.Next(0, 1) == 0;
+            return _random.Next(0, 2) == 0;
         }
 
         public void ProcessOpponentAction(bool opponentAction)

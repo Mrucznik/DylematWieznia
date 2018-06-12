@@ -56,6 +56,8 @@
     </ApplicationDefinition>
     <Compile Include="Action.cs" />
     <Compile Include="IStrategy.cs" />
+    <Compile Include="Strategies\AlwaysBetrayStrategy.cs" />
+    <Compile Include="Strategies\AlwaysCooperateStrategy.cs" />
     <Compile Include="Strategies\AxelrodStrategy.cs" />
     <Compile Include="Strategies\RandomStrategy.cs" />
     <Compile Include="Strategies\HumanStrategy.cs" />

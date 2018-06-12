@@ -10,27 +10,44 @@ namespace PrisonerDilema.Strategies
     /// <summary>
     /// Wet za wet, ale przedłużaj współpracę po trzech kolejnych współpracach.
     /// </summary>
-    class DontSkinTheBoat : CumulativeStrategy
+    class DontSkinTheBoat : IStrategy
     {
-        public override bool TakeAction()
+        protected readonly Stack<bool> EnemyMoves = new Stack<bool>(3);
+        protected readonly Stack<bool> MyMoves = new Stack<bool>(3);
+        protected bool LastMove = COOPERATION;
+
+        public bool TakeAction()
         {
             if (EnemyMoves.Count < 4)
             {
+                MyMoves.Push(LastMove);
                 return LastMove;
             }
 
             bool ourMove;
             if (LastMove == BETRAYAL)
             {
-                Stack<bool> last4Moves = new Stack<bool>(4);
+                int movesToProcess = 4;
+                Stack<bool> lastOponentMoves = new Stack<bool>(movesToProcess);
+                Stack<bool> lastMyMoves = new Stack<bool>(movesToProcess);
 
-                for (int i = 0; i < 4; i++)
-                    last4Moves.Push(EnemyMoves.Pop());
+                for (int i = 0; i < movesToProcess; i++)
+                {
+                    lastOponentMoves.Push(EnemyMoves.Pop());
+                    lastMyMoves.Push(MyMoves.Pop());
+                }
 
-                ourMove = last4Moves.Count(move => move == COOPERATION) > 3 ? COOPERATION : BETRAYAL;
+                //our move set
+                if (lastOponentMoves.Count(move => move == COOPERATION) >= movesToProcess-1 && lastMyMoves.Count(move => move == COOPERATION) >= movesToProcess-1)
+                    ourMove = COOPERATION;
+                else
+                    ourMove = BETRAYAL;
 
-                for (int i = 0; i < 4; i++)
-                    EnemyMoves.Push(last4Moves.Pop());
+                for (int i = 0; i < movesToProcess; i++)
+                {
+                    EnemyMoves.Push(lastOponentMoves.Pop());
+                    MyMoves.Push(lastMyMoves.Pop());
+                }
                     
             }
             else
@@ -38,7 +55,14 @@ namespace PrisonerDilema.Strategies
                 ourMove = COOPERATION;
             }
 
+            MyMoves.Push(ourMove);
             return ourMove;
+        }
+
+        public virtual void ProcessOpponentAction(bool opponentAction)
+        {
+            LastMove = opponentAction;
+            EnemyMoves.Push(opponentAction);
         }
     }
 }

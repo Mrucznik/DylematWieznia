@@ -7,6 +7,9 @@ using static PrisonerDilema.Action;
 
 namespace PrisonerDilema.Strategies
 {
+    /// <summary>
+    /// Kontynuuj współpracę, gdy partner ją wznowił.
+    /// </summary>
     class AcceptApology : IStrategy
     {
         protected readonly Stack<bool> EnemyMoves = new Stack<bool>(3);

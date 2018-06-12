@@ -7,6 +7,9 @@ using static PrisonerDilema.Action;
 
 namespace PrisonerDilema.Strategies
 {
+    /// <summary>
+    /// Współpracuj, gdy współpraca została nawiązana po jej naruszeniu
+    /// </summary>
     class CooperateStrategy : IStrategy
     {
         protected bool OponentLastMove = COOPERATION;

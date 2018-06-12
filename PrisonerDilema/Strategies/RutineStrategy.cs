@@ -7,6 +7,9 @@ using static PrisonerDilema.Action;
 
 namespace PrisonerDilema.Strategies
 {
+    /// <summary>
+    /// Zdradzaj po 3 kolejnych zdradach.
+    /// </summary>
     class RutineStrategy : IStrategy
     {
         protected readonly Queue<bool> EnemyMoves = new Queue<bool>(3);

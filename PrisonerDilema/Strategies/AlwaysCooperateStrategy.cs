@@ -7,6 +7,9 @@ using static PrisonerDilema.Action;
 
 namespace PrisonerDilema.Strategies
 {
+    /// <summary>
+    /// Zawsze współpracuj
+    /// </summary>
     class AlwaysCooperateStrategy : IStrategy
     {
         public bool TakeAction()

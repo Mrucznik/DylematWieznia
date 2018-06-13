@@ -7,11 +7,20 @@ namespace PrisonerDilema.Strategies
     {
         private readonly Random _random = new Random();
         private bool _previousAction = COOPERATION;
+        private readonly double _probability;
+        private bool _action;
+
+
+        public TitForTatWithProbability(bool action, double probability)
+        {
+            _action = action;
+            _probability = probability;
+        }
 
         public bool TakeAction()
         {
-            if (_random.NextDouble() > 0.9)
-                return COOPERATION;
+            if (_random.NextDouble() <= _probability)
+                return BETRAYAL;
             return _previousAction;
         }
 

@@ -50,9 +50,14 @@ namespace PrisonerDilema
                     prisoner.SetStrategy(new TitForTat());
                     break;
                 }
+                case "Wet za dwa wet z 10% prawdopodobieństwem na zdradę":
+                {
+                    prisoner.SetStrategy(new TitForTatWithProbability(BETRAYAL, 0.1));
+                    break;
+                }
                 case "Wet za dwa wet z 10% prawdopodobieństwem na współpracę":
                 {
-                    prisoner.SetStrategy(new TitForTatWithProbability());
+                    prisoner.SetStrategy(new TitForTatWithProbability(COOPERATION, 0.1));
                     break;
                 }
                 case "Nie zatapiaj łodzi":

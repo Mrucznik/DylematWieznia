@@ -1,16 +1,17 @@
-﻿using static PrisonerDilema.Action;
+﻿using System;
+using static PrisonerDilema.Action;
 
 namespace PrisonerDilema.Strategies
 {
-    /// <summary>
-    /// Wet za wet.
-    /// </summary>
-    class TitForTat : IStrategy
+    class TitForTatWithProbability : IStrategy
     {
+        private readonly Random _random = new Random();
         private bool _previousAction = COOPERATION;
 
         public bool TakeAction()
         {
+            if (_random.NextDouble() > 0.9)
+                return COOPERATION;
             return _previousAction;
         }
 

@@ -12,6 +12,7 @@
         <ComboBox Name="Prisoner1Strategy" Margin="351,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">
             <ComboBoxItem Content="Wet za wet"/>
             <ComboBoxItem Content="Wet za dwa wety"/>
+            <ComboBoxItem Content="Wet za dwa wet z 10% prawdopodobieństwem na współpracę"/>
             <ComboBoxItem Content="Nie zatapiaj łodzi"/>
             <ComboBoxItem Content="Akceptuj przeprosiny"/>
             <ComboBoxItem Content="Zapominaj"/>

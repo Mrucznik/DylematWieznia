@@ -20,7 +20,7 @@ namespace PrisonerDilema.Strategies
         public bool TakeAction()
         {
             if (_random.NextDouble() <= _probability)
-                return BETRAYAL;
+                return _action;
             return _previousAction;
         }
 

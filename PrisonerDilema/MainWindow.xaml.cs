@@ -47,7 +47,7 @@ namespace PrisonerDilema
                 }
                 case "Wet za dwa wet":
                 {
-                    prisoner.SetStrategy(new TitForTat());
+                    prisoner.SetStrategy(new TitFor2Tat());
                     break;
                 }
                 case "Wet za dwa wet z 10% prawdopodobieństwem na zdradę":
@@ -72,12 +72,12 @@ namespace PrisonerDilema
                 }
                 case "Zapominaj":
                 {
-                    prisoner.SetStrategy(new TitForTat());
+                    prisoner.SetStrategy(new CooperateStrategy());
                     break;
                 }
                 case "Trzymaj się rozwiązania rutynowego":
                 {
-                    prisoner.SetStrategy(new TitForTat());
+                    prisoner.SetStrategy(new RutineStrategy());
                     break;
                 }
                 case "Zawsze zdradzaj":

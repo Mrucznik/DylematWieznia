@@ -15,7 +15,6 @@
             <ComboBoxItem Content="Wet za dwa wet z 10% prawdopodobieństwem na zdradę"/>
             <ComboBoxItem Content="Wet za dwa wet z 10% prawdopodobieństwem na współpracę"/>
             <ComboBoxItem Content="Nie zatapiaj łodzi"/>
-            <ComboBoxItem Content="Akceptuj przeprosiny"/>
             <ComboBoxItem Content="Zapominaj"/>
             <ComboBoxItem Content="Trzymaj się rozwiązania rutynowego"/>
             <ComboBoxItem Content="Zawsze zdradzaj"/>
@@ -32,7 +31,6 @@
             <ComboBoxItem Content="Wet za dwa wet z 10% prawdopodobieństwem na zdradę"/>
             <ComboBoxItem Content="Wet za dwa wet z 10% prawdopodobieństwem na współpracę"/>
             <ComboBoxItem Content="Nie zatapiaj łodzi"/>
-            <ComboBoxItem Content="Akceptuj przeprosiny"/>
             <ComboBoxItem Content="Zapominaj"/>
             <ComboBoxItem Content="Trzymaj się rozwiązania rutynowego"/>
             <ComboBoxItem Content="Zawsze zdradzaj"/>

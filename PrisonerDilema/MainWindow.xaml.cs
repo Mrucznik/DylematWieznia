@@ -65,11 +65,6 @@ namespace PrisonerDilema
                     prisoner.SetStrategy(new DontSkinTheBoat());
                     break;
                 }
-                case "Akceptuj przeprosiny":
-                {
-                    prisoner.SetStrategy(new AcceptApology());
-                    break;
-                }
                 case "Zapominaj":
                 {
                     prisoner.SetStrategy(new CooperateStrategy());

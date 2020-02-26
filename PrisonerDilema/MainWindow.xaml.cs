@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 using PrisonerDilema.Strategies;
 using static PrisonerDilema.Action;
@@ -61,14 +50,19 @@ namespace PrisonerDilema
                     prisoner.SetStrategy(new TitFor2Tat());
                     break;
                 }
+                case "Wet za dwa wet z 10% prawdopodobieństwem na zdradę":
+                {
+                    prisoner.SetStrategy(new TitForTatWithProbability(BETRAYAL, 0.1));
+                    break;
+                }
+                case "Wet za dwa wet z 10% prawdopodobieństwem na współpracę":
+                {
+                    prisoner.SetStrategy(new TitForTatWithProbability(COOPERATION, 0.1));
+                    break;
+                }
                 case "Nie zatapiaj łodzi":
                 {
                     prisoner.SetStrategy(new DontSkinTheBoat());
-                    break;
-                }
-                case "Akceptuj przeprosiny":
-                {
-                    prisoner.SetStrategy(new AcceptApology());
                     break;
                 }
                 case "Zapominaj":

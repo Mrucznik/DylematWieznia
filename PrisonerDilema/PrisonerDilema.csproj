@@ -58,7 +58,6 @@
     <Compile Include="IStrategy.cs" />
     <Compile Include="Strategies\AlwaysBetrayStrategy.cs" />
     <Compile Include="Strategies\AlwaysCooperateStrategy.cs" />
-    <Compile Include="Strategies\AcceptApology.cs" />
     <Compile Include="Strategies\CooperateStrategy.cs" />
     <Compile Include="Strategies\DontSkinTheBoat.cs" />
     <Compile Include="Strategies\RandomStrategy.cs" />
@@ -66,6 +65,7 @@
     <Compile Include="Strategies\RutineStrategy.cs" />
     <Compile Include="Strategies\TitFor2Tat.cs" />
     <Compile Include="Strategies\TitForTat.cs" />
+    <Compile Include="Strategies\TitForTatWithProbability.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

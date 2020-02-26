@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Dylemat więźnia" Height="500" Width="611.165">
+        Title="Dylemat więźnia" Height="521.307" Width="653.779">
     <Grid>
         <ListBox Name="Display" HorizontalAlignment="Left" Margin="10,10,0,10" Width="336"/>
 
@@ -12,8 +12,9 @@
         <ComboBox Name="Prisoner1Strategy" Margin="351,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">
             <ComboBoxItem Content="Wet za wet"/>
             <ComboBoxItem Content="Wet za dwa wety"/>
+            <ComboBoxItem Content="Wet za dwa wet z 10% prawdopodobieństwem na zdradę"/>
+            <ComboBoxItem Content="Wet za dwa wet z 10% prawdopodobieństwem na współpracę"/>
             <ComboBoxItem Content="Nie zatapiaj łodzi"/>
-            <ComboBoxItem Content="Akceptuj przeprosiny"/>
             <ComboBoxItem Content="Zapominaj"/>
             <ComboBoxItem Content="Trzymaj się rozwiązania rutynowego"/>
             <ComboBoxItem Content="Zawsze zdradzaj"/>
@@ -27,8 +28,9 @@
         <ComboBox Name="Prisoner2Strategy" Margin="476,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">
             <ComboBoxItem Content="Wet za wet"/>
             <ComboBoxItem Content="Wet za dwa wety"/>
+            <ComboBoxItem Content="Wet za dwa wet z 10% prawdopodobieństwem na zdradę"/>
+            <ComboBoxItem Content="Wet za dwa wet z 10% prawdopodobieństwem na współpracę"/>
             <ComboBoxItem Content="Nie zatapiaj łodzi"/>
-            <ComboBoxItem Content="Akceptuj przeprosiny"/>
             <ComboBoxItem Content="Zapominaj"/>
             <ComboBoxItem Content="Trzymaj się rozwiązania rutynowego"/>
             <ComboBoxItem Content="Zawsze zdradzaj"/>
